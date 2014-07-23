@@ -1,0 +1,8 @@
+<% unless logged_in? %>
+  <h4>Welcome, <%= get_current_user.username %></h4>
+  <form action="<%= session_url %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Logout" />
+  </form>
+<% end %>

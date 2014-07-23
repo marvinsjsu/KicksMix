@@ -1,0 +1,8 @@
+<h4>Edit Profile</h4>
+<%= render partial: "layouts/errors" %>
+<form action="<%= user_url(@user) %>" method="POST" class="form">
+  <input type="hidden" name="_method" value="PATCH">
+  <%= render partial: "layouts/form", locals: { user: @user } %>
+  <input type="submit" value="Update" class="btn btn-primary"/>
+</form>
+<%= link_to "All Users", users_url %>

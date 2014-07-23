@@ -1,0 +1,6 @@
+<ul>
+  <li>Username: <%= @user.username %></li>
+  <li>Email: <%= @user.email %></li>
+</ul>
+<%= link_to "All Users", users_url %>
+<%= link_to "Update Profile", edit_user_url(@user) %>

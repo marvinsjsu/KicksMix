@@ -1,0 +1,7 @@
+<%= link_to "Already signed up?", new_session_url %>
+<h4>Sign Up</h4>
+<%= render partial: "layouts/errors" %>
+<form action="<%= users_url %>" method="POST" class="form">
+  <%= render partial: "layouts/form", locals: { user: @user } %>
+  <input type="submit" value="Sign Up" class="btn btn-primary"/>
+</form>

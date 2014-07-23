@@ -1,0 +1,1 @@
+KicksMix::Application.config.secret_key_base = '154ff6b9c4bfc1804e9265121a1a6f9b4b1db81f5b1cc14e95d515e947471711c5521cc23a2a3e2295574958dd74c11527969a78d648abf3cf7c7ebbdcdcf1d8'
