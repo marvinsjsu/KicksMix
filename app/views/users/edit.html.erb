@@ -1,8 +1,30 @@
 <h4>Edit Profile</h4>
+
 <%= render partial: "layouts/errors" %>
-<form action="<%= user_url(@user) %>" method="POST" class="form">
-  <input type="hidden" name="_method" value="PATCH">
-  <%= render partial: "layouts/form", locals: { user: @user } %>
-  <input type="submit" value="Update" class="btn btn-primary"/>
-</form>
-<%= link_to "All Users", users_url %>
+<div class="user-edit">
+  <div class="user-photo">
+    <%= image_tag @user.photo_url%>
+  </div>
+  <form action="<%= user_url(@user) %>" method="POST" class="form" enctype="multipart/form-data" >
+    <input type="hidden" name="_method" value="PATCH">
+
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group">
+      <input id="user_username" type="text" name="user[username]" value="<%= @user.username %>" placeholder="username" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input id="user_email" type="text" name="user[email]" value="<%= @user.email %>" placeholder="email" class="form-control"/>
+    </div>
+    <div class="form-group">
+    <label for="user_description">Summary</label>
+    <textarea id="user_description" name="user[description]"><%= @user.description %></textarea>
+    </div>
+    <div class="form-group">
+    <label for="user_photo_url">Photo URL</label>
+    <input type="file" id="user_photo_url" name="user[photo_url]" accept="image/png,image/gif,image/jpeg" />
+    <input type="submit" value="Update" class="btn btn-primary"/>
+    </div>
+  </form>
+
+  <%= link_to "All Users", users_url %>
+</div>

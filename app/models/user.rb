@@ -2,17 +2,30 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string(255)      not null
-#  email           :string(255)      not null
-#  session_token   :string(255)      not null
-#  password_digest :string(255)      not null
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                     :integer          not null, primary key
+#  username               :string(255)      not null
+#  email                  :string(255)      not null
+#  session_token          :string(255)      not null
+#  password_digest        :string(255)      not null
+#  created_at             :datetime
+#  updated_at             :datetime
+#  description            :text
+#  photo_url              :string(255)
+#  photo_url_file_name    :string(255)
+#  photo_url_content_type :string(255)
+#  photo_url_file_size    :integer
+#  photo_url_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
   attr_accessor :password
+
+  has_attached_file :photo_url, :styles => {
+    :big => "600x600>",
+    :small => "50x50#"
+  }
+
+  validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, uniqueness: true

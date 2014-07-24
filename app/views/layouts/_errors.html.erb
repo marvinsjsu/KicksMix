@@ -1,7 +1,14 @@
 <% unless flash.now[:errors].nil? %>
-<ul>
-  <% flash.now[:errors].each do |error| %>
-  <li><%= error %></li>
-  <% end %>
-</ul>
+
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <p><strong>Oh snaps!</strong> Might just be a few things missing ... </p>
+  <ul>
+    <% flash.now[:errors].each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+</div>
+
 <% end%>
+

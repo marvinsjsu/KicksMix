@@ -33,6 +33,9 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (4.0.2)
+    aws-sdk (1.48.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     backbone-on-rails (1.1.1.0)
       actionmailer
       actionpack
@@ -51,6 +54,10 @@ GEM
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
     builder (3.1.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -78,6 +85,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    filepicker-rails (1.1.0)
+      rails (>= 3.2)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
     hike (1.2.3)
@@ -96,8 +105,16 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.6.0)
     minitest (4.7.5)
     multi_json (1.10.1)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     polyglot (0.3.5)
     pry (0.10.0)
       coderay (~> 1.1.0)
@@ -162,6 +179,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk
   backbone-on-rails
   bcrypt
   better_errors
@@ -170,10 +188,12 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   debugger
   figaro
+  filepicker-rails
   font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails
+  paperclip
   pry-rails
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)

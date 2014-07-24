@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+#gem 'pg'
 gem 'backbone-on-rails'
 gem 'bcrypt'
 gem 'bootstrap-sass'
@@ -13,7 +13,9 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'figaro'
-
+gem 'filepicker-rails'
+gem 'paperclip'
+gem 'aws-sdk'
 group :doc do
   gem 'sdoc', require: false
 end

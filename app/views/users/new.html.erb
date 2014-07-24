@@ -1,7 +1,14 @@
-<%= link_to "Already signed up?", new_session_url %>
-<h4>Sign Up</h4>
-<%= render partial: "layouts/errors" %>
-<form action="<%= users_url %>" method="POST" class="form">
-  <%= render partial: "layouts/form", locals: { user: @user } %>
-  <input type="submit" value="Sign Up" class="btn btn-primary"/>
-</form>
+<div id="user-login" class="user-prompt col-xs-4">
+
+  <%= render partial: "layouts/errors" %>
+
+  <form action="<%= users_url %>" method="POST" class="form-horizontal">
+    <fieldset>
+      <legend>Join, and get in the mix</legend>
+      <%= render partial: "layouts/form", locals: { user: @user } %>
+      <input type="submit" value="Sign Up" class="btn btn-primary"/>
+      <%= link_to "Already signed up?", new_session_url %>
+    </fieldset>
+  </form>
+
+</div>

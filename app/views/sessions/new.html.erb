@@ -1,15 +1,18 @@
-<%= link_to "Need to sign up", new_user_url %>
-<h4>Sign In</h4>
-<%= render partial: "layouts/errors" %>
-<form action="<%= session_url %>" method="POST" class="form">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="form-group">
-    <label for="user_username">Username</label>
-    <input id="user_username" type="text" name="user[username]" value="<%= @user.username %>" class="form-control"/>
-  </div>
-  <div class="form-group">
-    <label for="user_password">Password</label>
-    <input id="user_password" type="password" name="user[password]" value="<%= @user.password %>" class="form-control"/>
-  </div>
-  <input type="submit" value="Sign In" class="btn btn-primary"/>
-</form>
+<div id="user-signup" class="user-prompt col-xs-4">
+
+  <%= render partial: "layouts/errors" %>
+
+  <form action="<%= session_url %>" method="POST" class="form">
+    <fieldset>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <input id="user_username" type="text" name="user[username]" value="<%= @user.username %>" placeholder="username" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <input id="user_password" type="password" name="user[password]" value="<%= @user.password %>" placeholder="password" class="form-control"/>
+      </div>
+      <input type="submit" value="Sign In" class="btn btn-primary"/>
+      <%= link_to "Need to sign up", new_user_url %>
+    </fieldset>
+  </form>
+</div>

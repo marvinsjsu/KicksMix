@@ -1,6 +1,14 @@
-<ul>
-  <li>Username: <%= @user.username %></li>
-  <li>Email: <%= @user.email %></li>
-</ul>
-<%= link_to "All Users", users_url %>
-<%= link_to "Update Profile", edit_user_url(@user) %>
+<div class="user-info jumbotron">
+  <div class="row">
+    <div class="user-photo col-xs-4">
+      <%= image_tag @user.photo_url %>
+    </div>
+    <div class="user-details col-xs-6">
+      <h2><%= @user.username %></h2>
+      <h4><a href="mailto:<%= @user.email %>"> <%= @user.email %></a></h4>
+      <p><%= @user.description %></p>
+      <%= link_to "All Users", users_url %>
+      <%= link_to "Update Profile", edit_user_url(@user) %>
+    </div>
+  </div>
+</div>

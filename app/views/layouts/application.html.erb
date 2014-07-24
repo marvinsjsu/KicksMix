@@ -2,11 +2,46 @@
 <html>
 <head>
   <title>KicksMix</title>
+  <link rel="shortcut icon" href="" />
+  <%= stylesheet_link_tag 'application' %>
+  <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" medial="screen" rel="stylesheet">
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: "layouts/user" %>
-<%= yield %>
+<div class="container-fluid">
+  <div class="row">
 
+
+    <div class="col-xs-12">
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <%= image_tag("nav_logo.png") %>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control col-lg-8" placeholder="Search">
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Kicks Reviews</a></li>
+            <li><a href="#">Editors</a></li>
+            <li><a href="#">About Us</a></li>
+            <%= render partial: "layouts/user" %>
+          </ul>
+        </div>
+      </div>
+
+      <%= yield %>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>

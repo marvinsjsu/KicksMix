@@ -16,10 +16,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    login_user(@user)
-
     if @user.save
-      redirect_to users_url
+      login_user(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
@@ -32,8 +30,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
-
 
     if @user.update_attributes(user_params)
       redirect_to user_url(@user)
@@ -51,7 +47,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :description, :photo_url, :photo_url_file_name, :photo_url_content_type, :photo_url_file_size)
   end
 
 end
