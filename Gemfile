@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'filepicker-rails'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'rails_12factor'
 group :doc do
   gem 'sdoc', require: false
 end
