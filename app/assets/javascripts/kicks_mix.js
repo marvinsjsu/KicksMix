@@ -4,10 +4,9 @@ window.KicksMix = {
   Views: {},
   Routers: {},
   initialize: function() {
-
+    new KicksMix.Routers.Router();
+    Backbone.history.start();
   }
 };
 
-$(document).ready(function(){
-  KicksMix.initialize();
-});
+

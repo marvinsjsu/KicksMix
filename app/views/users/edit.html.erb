@@ -1,30 +1,43 @@
-<h4>Edit Profile</h4>
-
 <%= render partial: "layouts/errors" %>
-<div class="user-edit">
-  <div class="user-photo">
-    <%= image_tag @user.photo_url%>
+<div class="user-edit jumbotron">
+  <div class="row">
+    <div class="user-photo col-xs-4">
+       <div class="img-thumbnail">
+          <% if @user.photo_url%>
+            <%= image_tag @user.photo_url%>
+          <% else %>
+            <%= image_tag("missing.png")%>
+          <% end %>
+        </div>
+    </div>
+    <div class="user-details col-xs-6">
+      <legend>Edit My Profile</legend>
+      <form action="<%= user_url(@user) %>" method="POST" class="form" enctype="multipart/form-data" >
+        <input type="hidden" name="_method" value="PATCH">
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+          <label for="user_username">Username</label>
+          <input id="user_username" type="text" name="user[username]" value="<%= @user.username %>" placeholder="username" class="form-control" disabled="true"/>
+        </div>
+        <div class="form-group">
+          <label for="user_email">Email</label>
+          <input id="user_email" type="email" name="user[email]" value="<%= @user.email %>" placeholder="email" class="form-control" required/>
+        </div>
+        <div class="form-group">
+        <label for="user_description">Summary</label>
+        <textarea class="form-control" id="user_description" name="user[description]"><%= @user.description %></textarea>
+        </div>
+        <div class="form-group">
+        <label for="user_photo">Photo URL</label>
+        <input type="file" id="user_photo" name="user[photo_url]" accept="image/png,image/gif,image/jpeg" class="btn btn-primary"/>
+        </div>
+        <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-primary"/>
+        </div>
+      </form>
+
+      <%= link_to "My Profile", user_url(@user) %>
+    </div>
   </div>
-  <form action="<%= user_url(@user) %>" method="POST" class="form" enctype="multipart/form-data" >
-    <input type="hidden" name="_method" value="PATCH">
-
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <div class="form-group">
-      <input id="user_username" type="text" name="user[username]" value="<%= @user.username %>" placeholder="username" class="form-control"/>
-    </div>
-    <div class="form-group">
-      <input id="user_email" type="text" name="user[email]" value="<%= @user.email %>" placeholder="email" class="form-control"/>
-    </div>
-    <div class="form-group">
-    <label for="user_description">Summary</label>
-    <textarea id="user_description" name="user[description]"><%= @user.description %></textarea>
-    </div>
-    <div class="form-group">
-    <label for="user_photo_url">Photo URL</label>
-    <input type="file" id="user_photo_url" name="user[photo_url]" accept="image/png,image/gif,image/jpeg" />
-    <input type="submit" value="Update" class="btn btn-primary"/>
-    </div>
-  </form>
-
-  <%= link_to "All Users", users_url %>
 </div>

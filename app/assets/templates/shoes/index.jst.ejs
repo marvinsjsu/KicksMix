@@ -1,0 +1,26 @@
+
+<a href="#/shoes/new">Add a Review</a>
+
+<div class="row">
+  <% shoes.each(function(shoe){ %>
+  <div class="col-xs-4">
+    <a href="#/shoes/<%= shoe.get("id") %>">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= shoe.escape("name") %></h3>
+        </div>
+        <div class="panel-body">
+          <img src="<%= shoe.escape("shoe_photo") %>" class="img-responsive"/>
+        </div>
+        <div class="panel-footer">
+
+            Reviewed by: <%= shoe.escape("author_id") %>, on: <%= shoe.escape("created_at") %>
+
+        </div>
+      </div>
+    </a>
+  </div>
+  <% }) %>
+</div>
+
+<div id="page" class="Kicks Reviews"></div>

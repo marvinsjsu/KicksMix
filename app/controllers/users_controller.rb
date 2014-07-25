@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
+
       redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages

@@ -1,13 +1,13 @@
-class ShoesController < ApplicationController
+class Api::ShoesController < ApplicationController
 
   def index
     @shoes = Shoe.all
-    render json: @shoes
+    render :json => @shoes
   end
 
   def show
     @shoe = Shoe.find(params[:id])
-    render json: @shoe
+    #render json: @shoe #, include: :comments
   end
 
   def new
@@ -17,6 +17,7 @@ class ShoesController < ApplicationController
 
   def create
     @shoe = Shoe.new(shoe_params)
+    @shoe.author_id = get_current_user.id
 
     if @shoe.save
       render json: @shoe
@@ -44,6 +45,6 @@ class ShoesController < ApplicationController
   private
 
   def shoe_params
-    params.require(:shoe).permit(:name, :category, :description, :photo, :brand)
+    params.require(:shoe).permit(:name, :category, :price, :brand, :review, :shoe_photo, :shoe_photo_file_name, :shoe_photo_content_type, :shoe_photo_file_size, :shoe_photo_updated_at)
   end
 end

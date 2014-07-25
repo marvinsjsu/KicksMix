@@ -18,7 +18,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessor :password
+  attr_reader :password
 
   has_attached_file :photo_url, :styles => {
     :big => "600x600>",
@@ -27,9 +27,11 @@ class User < ActiveRecord::Base
 
   validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
+  has_many :shoes, class_name: 'Shoe', foreign_key: :author_id, primary_key: :id
+
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password, length: { minimum: 6 }, on: :create
 
   before_validation :ensure_session_token
 
@@ -54,6 +56,7 @@ class User < ActiveRecord::Base
   end
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 

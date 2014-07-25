@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-9">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= shoe.escape("name") %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-4">
+          <img src="<%= shoe.escape("shoe_photo") %>" class="img-responsive"/>
+        </div>
+        <div class="col-xs-7">
+          <%= shoe.escape("review") %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

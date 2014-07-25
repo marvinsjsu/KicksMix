@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-
 //= require underscore
+//= require jquery.serializejson
 //= require backbone
 //= require kicks_mix
 //= require_tree ../templates
@@ -23,3 +23,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+

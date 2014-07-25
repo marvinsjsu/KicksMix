@@ -3,7 +3,7 @@
   <input id="user_username" type="text" name="user[username]" value="<%= @user.username %>" placeholder="username" class="form-control"/>
 </div>
 <div class="form-group">
-  <input id="user_email" type="text" name="user[email]" value="<%= @user.email %>" placeholder="email" class="form-control"/>
+  <input id="user_email" type="email" name="user[email]" value="<%= @user.email %>" placeholder="email" class="form-control" required/>
 </div>
 <div class="form-group">
   <input id="user_password" type="password" name="user[password]" placeholder="password" value="<%#= @user.password %>" class="form-control"/>
