@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725194936) do
+ActiveRecord::Schema.define(version: 20140725201156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140725194936) do
     t.string   "shoe_photo_content_type"
     t.integer  "shoe_photo_file_size"
     t.datetime "shoe_photo_updated_at"
+    t.string   "shoe_photo"
   end
 
   add_index "shoes", ["name"], name: "index_shoes_on_name", unique: true, using: :btree
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140725194936) do
     t.integer  "photo_url_file_size"
     t.datetime "photo_url_updated_at"
     t.text     "description"
+    t.string   "photo_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
