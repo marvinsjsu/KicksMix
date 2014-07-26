@@ -18,7 +18,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_reader :password
+  attr_reader :password, :role
 
   has_attached_file :photo_url, :styles => {
     :big => "600x600>",
@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
   has_many :shoes, class_name: 'Shoe', foreign_key: :author_id, primary_key: :id
+  has_many :comments, class_name: 'Comment', foreign_key: :user_id, primary_key: :id
 
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, uniqueness: true

@@ -7,7 +7,6 @@ class Api::ShoesController < ApplicationController
 
   def show
     @shoe = Shoe.find(params[:id])
-    #render json: @shoe #, include: :comments
   end
 
   def new

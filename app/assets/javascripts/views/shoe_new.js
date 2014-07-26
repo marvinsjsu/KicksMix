@@ -12,7 +12,6 @@ KicksMix.Views.ShoeNew = Backbone.View.extend({
   },
 
   addReview: function(event){
-    alert("addReview");
     event.preventDefault();
     var view = this;
     var params = $(event.currentTarget).serializeJSON();

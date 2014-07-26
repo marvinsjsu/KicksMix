@@ -5,14 +5,12 @@ KicksMix.Models.Shoe = Backbone.Model.extend({
     return this._comments
   },
 
-  author: function() {
-
-  },
-
   parse: function(response) {
+
     if (response.comments) {
-      this.comments().set(response.comments, { parse: true })
+      this.comments().set(response.comments, { parse: true });
     }
+
     return response;
   }
 });

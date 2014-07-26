@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :shoes, only: [:index, :show, :create, :update, :destroy]
+    resources :shoes, only: [:index, :show, :create, :update, :destroy] do
+      resources :comments, only: [:create, :destroy, :update]
+    end
   end
 end
