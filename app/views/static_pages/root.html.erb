@@ -3,5 +3,15 @@
 <script>
   $(document).ready(function(){
     KicksMix.initialize();
+    var getCurrentUserId = function() {
+      var currentUserId = $("#current_user").attr("class");
+      if (currentUserId === 0) {
+        return false;
+      } else {
+        return currentUserId;
+      }
+    };
+
+    $("input.current-user-id-needed").val(getCurrentUserId);
   });
 </script>

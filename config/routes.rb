@@ -16,5 +16,8 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy, :update], :has_many => :comments
     end
 
+    resources :comments do
+       resources :comments, only: [:create], :has_many => :comments
+    end
   end
 end

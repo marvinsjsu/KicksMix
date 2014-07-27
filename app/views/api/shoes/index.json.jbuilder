@@ -5,7 +5,7 @@ json.shoes @shoes.each do |json, shoe|
 
  json.comments shoe.comments do |json, comment|
    json.(comment, :content, :comments_by)
-   json.(comment.commenter, :id, :username, :photo_url, :description)
+   json.(comment.commenter, :username, :photo_url, :description)
  end
 
 end

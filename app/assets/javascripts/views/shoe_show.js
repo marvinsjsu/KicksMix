@@ -6,10 +6,35 @@ KicksMix.Views.ShoeShow = Backbone.View.extend({
   },
   events: {
     'submit #add-comment-form' : 'addComment',
-    'submit #reply-comment-form' : 'replyToComment'
+    'submit #reply-comment-form' : 'replyToComment',
+    'click .reply-to-comment' : 'getSetCommentId'
+  },
+
+  getSetCommentId: function(event) {
+    var commentId = $(event.currentTarget).data("id");
+    alert(commentId);
+    $("input#comment-reply").val(commentId);
   },
 
   addComment: function(event) {
+    event.preventDefault();
+    var params = $(event.currentTarget).serializeJSON();
+    var comment = new KicksMix.Models.Comment(params["comment"]);
+
+    var that = this;
+    comment.save({}, {
+       success: function(e, r, o) {
+        alert(JSON.stringify(r));
+
+        that.model.comments().add(comment);
+       }
+    });
+
+
+    $("#new-comment-modal").modal("hide");
+  },
+
+  replyToComment: function(event) {
     event.preventDefault();
     var params = $(event.currentTarget).serializeJSON();
     var comment = new KicksMix.Models.Comment(params["comment"]);
@@ -21,19 +46,13 @@ KicksMix.Views.ShoeShow = Backbone.View.extend({
        }
     });
 
-
-    $("#new-comment-modal").modal("hide");
-  },
-
-  replyToComment: function(event) {
-    event.preventDefault();
-    alert("replyToComment");
     $("#reply-comment-modal").modal("hide");
   },
 
   render: function() {
     var content = this.template({
-      shoe: this.model
+      shoe: this.model,
+      comments: this.model.comments()
     });
 
     this.$el.html(content);

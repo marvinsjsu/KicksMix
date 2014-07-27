@@ -1,3 +1,4 @@
+<% var user_id = $("#current_user").attr("class"); %>
 <div class="row">
   <div class="col-xs-9">
   <div class="panel panel-primary">
@@ -21,18 +22,24 @@
 <div class="row">
   <div class="col-xs-5">
   <!-- Button trigger modal -->
+  <% if (user_id > 0) { %>
   <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#new-comment-modal">
     Add Comment
   </button>
+  <% } %>
     <ul>
-    <% shoe.comments().each(function(comment){ %>
+    <% comments.each(function(comment){ %>
       <li>
         <%= comment.escape("content") %>
         by <%= comment.escape("username") %>
+        <% debugger; %>
       </li>
-      <button class="btn btn-link" data-toggle="modal" data-target="#reply-comment-modal">
+
+      <% if (user_id > 0) { %>
+      <button class="btn btn-link reply-to-comment" data-toggle="modal" data-target="#reply-comment-modal" data-id="<%= comment.get("id")%>">
         reply to comment
       </button>
+      <% } %>
     <% }) %>
     </ul>
   </div>
@@ -44,10 +51,10 @@
       <div class="modal-body">
       <div class="form-group row">
         <div class="col-lg-12">
+
           <form id="add-comment-form">
-          <% var user_id = $("#current_user").attr("class"); %>
-          <input type="hidden" name="comment[comments_by]" value="<%= user_id %>" />
-          <input type="hidden" name="comment[comments_by]" value="<%= user_id %>" />
+          <input type="hidden" id="user-needed" name="comment[comments_by]"
+          value="<%= user_id %>"/>
           <input type="hidden" name="comment[model]" value="shoe" />
 
           <input type="hidden" name="comment[model_id]" value="<%= shoe.get("id") %>" />
@@ -57,6 +64,7 @@
           <button type="reset" class="btn btn-default btn-sml">Reset</button>
           <input id="save-comment" type="submit" class="btn btn-primary btn-sml" value="Submit"/>
           </form>
+
         </div>
       </div>
       </div>
@@ -70,13 +78,19 @@
       <div class="modal-body">
       <div class="form-group row">
         <div class="col-lg-12">
+
           <form id="reply-comment-form">
+          <input type="hidden" id="user-needed" name="comment[comments_by]"
+          value="<%= user_id %>"/>
+          <input type="hidden" name="comment[model]" value="comment" />
+          <input type="hidden" id="comment-reply" name="comment[model_id]" />
           <textarea class="form-control" rows="4" name="comment[content]"></textarea>
           <br/>
           <button type="button" class="btn btn-default btn-sml" data-dismiss="modal">Close</button>
           <button type="reset" class="btn btn-default btn-sml">Reset</button>
           <input id="save-comment" type="submit" class="btn btn-primary btn-sml" value="Submit"/>
           </form>
+
         </div>
       </div>
       </div>
