@@ -2,6 +2,10 @@ KicksMix.Collections.Shoes = Backbone.Collection.extend({
   url: "/api/shoes",
   model: KicksMix.Models.Shoe,
 
+  parse: function(response) {
+    return response.shoes;
+  },
+
   getOrFetch: function(id) {
     var shoe = this.get(id);
     var shoesCollection = this;

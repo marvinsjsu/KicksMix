@@ -33,6 +33,6 @@ class Shoe < ActiveRecord::Base
   validates :name, :category, :price, :brand, :review, presence: true
   validates :name, uniqueness: true
 
-  has_many :comments, class_name: 'Comment', foreign_key: :shoe_id, primary_key: :id
+  has_many :comments, :as => :commentable
   belongs_to :author, class_name: 'User', foreign_key: :author_id, primary_key: :id
 end

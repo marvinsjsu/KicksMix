@@ -1,13 +1,14 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
 
   def create
-    @shoe = Shoe.find(params[:shoe_id])
-    @shoe.comments.new(comments_params)
+    @commentable = find_commentable
 
-    if @shoe.save
-      render @shoe
+    @commentable.comments.build(comments_params)
+
+    if @commentable.save
+      @commentable
     else
-      render @shoe.errors
+      @commentable.errors
     end
   end
 
@@ -29,7 +30,23 @@ class CommentsController < ApplicationController
   private
 
   def comments_params
-    params.require(:comment).permit(:user_id, :shoe_id, :content);
+    params.require(:comment).permit(:comments_by, :content);
   end
 
+  def find_commentable
+    @model = ""
+    @find_val = ""
+
+    params.each do |name, value|
+      if name === "model"
+        @model = value
+      end
+
+      if name === "model_id"
+        @find_val = value
+      end
+    end
+
+    @model.classify.constantize.find(@find_val)
+  end
 end

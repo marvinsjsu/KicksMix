@@ -2,33 +2,33 @@ KicksMix.Views.ShoeShow = Backbone.View.extend({
   template: JST["shoes/show"],
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.comments(), "sync change", this.render);
   },
   events: {
-    'click a.add-comment' : 'addComment',
-    'click a.add-reply' : 'replyToComment'
+    'submit #add-comment-form' : 'addComment',
+    'submit #reply-comment-form' : 'replyToComment'
   },
 
   addComment: function(event) {
     event.preventDefault();
+    var params = $(event.currentTarget).serializeJSON();
+    var comment = new KicksMix.Models.Comment(params["comment"]);
+    var that = this;
+    comment.save({}, {
+       success: function() {
 
-    $( "#comment-form" ).dialog({
-      dialogClass: "no-close",
-      buttons: [
-        {
-          text: "OK",
-          click: function() {
-            $( this ).dialog( "close" );
-          }
-        }
-      ]
+        that.model.comments().add(comment);
+
+       }
     });
 
-    $("#comment-form").dialog("open");
+    $("#new-comment-modal").modal("hide");
   },
 
   replyToComment: function(event) {
     event.preventDefault();
     alert("replyToComment");
+    $("#reply-comment-modal").modal("hide");
   },
 
   render: function() {

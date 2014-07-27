@@ -15,7 +15,7 @@ module ApplicationHelper
     user.session_token = User.generate_session_token
     session[:session_token] = user.session_token
     user.save!
-    redirect_to user_url(user)
+
   end
 
   def logout

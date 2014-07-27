@@ -1,16 +1,6 @@
-class UsersController < ApplicationController
-  before_action :require_current_user!, except: [:new, :create]
-
-  def index
-    @users = User.all
-  end
-
+class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-  end
-
-  def new
-    @user = User.new()
   end
 
   def create
@@ -20,19 +10,8 @@ class UsersController < ApplicationController
       login_user(@user)
       redirect_to user_url(user)
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+       @user.errors.full_messages
     end
-  end
-
-  def edit
-    @user = User.find(params[:id])
-
-    #if get_current_user role is "admin"
-    #@user = User.find(params[:id])
-    #else
-    #@user = get_current_user
-
   end
 
   def update
@@ -44,23 +23,14 @@ class UsersController < ApplicationController
     #@user = get_current_user
 
     if @user.update_attributes(user_params)
-
-      redirect_to user_url(@user)
+      @user
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :edit
+      @user.errors.full_messages
     end
   end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-  end
-
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :description, :photo_url, :photo_url_file_name, :photo_url_content_type, :photo_url_file_size)
   end
-
 end

@@ -9,12 +9,13 @@
 #  password_digest        :string(255)      not null
 #  created_at             :datetime
 #  updated_at             :datetime
-#  description            :text
-#  photo_url              :string(255)
 #  photo_url_file_name    :string(255)
 #  photo_url_content_type :string(255)
 #  photo_url_file_size    :integer
 #  photo_url_updated_at   :datetime
+#  description            :text
+#  photo_url              :string(255)
+#  role                   :string(255)      default("user")
 #
 
 class User < ActiveRecord::Base
@@ -28,7 +29,9 @@ class User < ActiveRecord::Base
   validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
   has_many :shoes, class_name: 'Shoe', foreign_key: :author_id, primary_key: :id
-  has_many :comments, class_name: 'Comment', foreign_key: :user_id, primary_key: :id
+  has_many :comments, :as => :commentable
+  # has_many :comments, class_name: "Comment", foreign_key: :comments_by, pr
+
 
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, uniqueness: true

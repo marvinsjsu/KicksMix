@@ -6,11 +6,9 @@ KicksMix.Models.Shoe = Backbone.Model.extend({
   },
 
   parse: function(response) {
-
     if (response.comments) {
       this.comments().set(response.comments, { parse: true });
     }
-
     return response;
   }
 });

@@ -2,7 +2,7 @@ class Api::ShoesController < ApplicationController
 
   def index
     @shoes = Shoe.all
-    render :json => @shoes
+    #render :json => @shoes
   end
 
   def show

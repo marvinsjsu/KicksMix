@@ -21,34 +21,41 @@
 <div class="row">
   <div class="col-xs-5">
   <!-- Button trigger modal -->
-  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#comment-form">
+  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#new-comment-modal">
     Add Comment
   </button>
     <ul>
     <% shoe.comments().each(function(comment){ %>
-      <li><%= comment.escape("content") %>
-         by <a class="author-page" href="localhost:3000/users/<%= JSON.stringify(comment.get("author").id) %>" >
-         <%= JSON.stringify(comment.get("author").username) %>
-         </a>
+      <li>
+        <%= comment.escape("content") %>
+        by <%= comment.get("username") %>
       </li>
-      <li><a class="add-reply"href="">Reply to this comment</a></li>
+      <button class="btn btn-link" data-toggle="modal" data-target="#reply-comment-modal">
+        reply to comment
+      </button>
     <% }) %>
     </ul>
   </div>
 </div>
 
-<div id="comment-form" class="modal">
+<div id="new-comment-modal" class="modal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
       <div class="form-group row">
         <div class="col-lg-12">
           <form id="add-comment-form">
+          <% var user_id = $("#current_user").attr("class"); %>
+          <input type="hidden" name="comment[comments_by]" value="<%= user_id %>" />
+          <input type="hidden" name="comment[comments_by]" value="<%= user_id %>" />
+          <input type="hidden" name="comment[model]" value="shoe" />
+
+          <input type="hidden" name="comment[model_id]" value="<%= shoe.get("id") %>" />
           <textarea class="form-control" rows="4" name="comment[content]"></textarea>
           <br/>
           <button type="button" class="btn btn-default btn-sml" data-dismiss="modal">Close</button>
           <button type="reset" class="btn btn-default btn-sml">Reset</button>
-          <button type="button" class="btn btn-primary btn-sml">Save changes</button>
+          <input id="save-comment" type="submit" class="btn btn-primary btn-sml" value="Submit"/>
           </form>
         </div>
       </div>
@@ -56,3 +63,25 @@
     </div>
   </div>
 </div>
+
+<div id="reply-comment-modal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <div class="form-group row">
+        <div class="col-lg-12">
+          <form id="reply-comment-form">
+          <textarea class="form-control" rows="4" name="comment[content]"></textarea>
+          <br/>
+          <button type="button" class="btn btn-default btn-sml" data-dismiss="modal">Close</button>
+          <button type="reset" class="btn btn-default btn-sml">Reset</button>
+          <input id="save-comment" type="submit" class="btn btn-primary btn-sml" value="Submit"/>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
