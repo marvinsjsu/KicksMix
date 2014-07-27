@@ -28,7 +28,7 @@
     <% shoe.comments().each(function(comment){ %>
       <li>
         <%= comment.escape("content") %>
-        by <%= comment.get("username") %>
+        by <%= comment.escape("username") %>
       </li>
       <button class="btn btn-link" data-toggle="modal" data-target="#reply-comment-modal">
         reply to comment
