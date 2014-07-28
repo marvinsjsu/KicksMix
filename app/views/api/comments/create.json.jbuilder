@@ -8,6 +8,6 @@
 #   json.(comment.commenter, :username, :photo_url, :description)
 # end
 
-json.(@commentable.comments.last, :id)
+json.(@commentable.comments.last, :id, :content, :commentable_id, :commentable_type)
 json.(@commentable.comments.last.commenter, :username, :description, :photo_url)
 json.success 'true'

@@ -12,7 +12,6 @@ KicksMix.Views.ShoeShow = Backbone.View.extend({
 
   getSetCommentId: function(event) {
     var commentId = $(event.currentTarget).data("id");
-    alert(commentId);
     $("input#comment-reply").val(commentId);
   },
 

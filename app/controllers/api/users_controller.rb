@@ -1,6 +1,8 @@
 class Api::UsersController < ApplicationController
+  before_action :require_current_user!
+
   def show
-    @user = User.find(params[:id])
+    @user = get_current_user
   end
 
   def create

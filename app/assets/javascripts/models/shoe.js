@@ -1,7 +1,8 @@
 KicksMix.Models.Shoe = Backbone.Model.extend({
   urlRoot: "/api/shoes",
+
   comments: function() {
-    this._comments = this._comments || new KicksMix.Collections.Comments([], { shoe: this });
+    this._comments = this._comments || new KicksMix.Collections.Comments([], { obj: this });
     return this._comments
   },
 

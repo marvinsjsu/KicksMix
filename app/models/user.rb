@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   has_many :shoes, class_name: 'Shoe', foreign_key: :author_id, primary_key: :id
   has_many :comments, :as => :commentable
-  # has_many :comments, class_name: "Comment", foreign_key: :comments_by, pr
+  has_many :my_comments, class_name: "Comment", foreign_key: :comments_by, primary_key: :id
 
 
   validates :username, :email, :session_token, :password_digest, presence: true
