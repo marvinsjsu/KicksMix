@@ -35,8 +35,12 @@ KicksMix.Routers.Router = Backbone.Router.extend({
     this._swapView(newView);
   },
 
-  shoeEdit: function() {
-
+  shoeEdit: function(id) {
+    var shoe = KicksMix.Collections.shoes.getOrFetch(id);
+    var editView = new KicksMix.Views.ShoeEdit({
+      model: shoe
+    });
+    this._swapView(editView);
   },
 
   _swapView: function(newView) {

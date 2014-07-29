@@ -1,7 +1,16 @@
 json.ignore_nil! true
 json.(@shoe, :id, :name, :category, :review, :price, :brand, :created_at, :updated_at, :shoe_photo)
+json.shoe_photo_sm @shoe.shoe_photo.url(:small)
+json.shoe_photo_md @shoe.shoe_photo.url(:md)
+json.shoe_photo_lg @shoe.shoe_photo.url(:lg)
 json.author @shoe.author, :id, :username, :description
 json.author_reviews @shoe.author.shoes, :id, :name, :category, :review, :price, :brand, :created_at, :updated_at, :shoe_photo
+
+
+json.liked_by @shoe.liked_by do |json, user|
+  json.(user, :id, :username, :description, :photo_url, :email)
+end
+
 
 json.comments @shoe.comments do |json, comment|
   json.(comment, :id, :content, :comments_by, :commentable_id, :commentable_type, :created_at, :updated_at)

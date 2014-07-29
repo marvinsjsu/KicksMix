@@ -1,27 +1,51 @@
 
-<a href="#/shoes/new">Add a Review</a>
-
 <div class="row">
-  <% shoes.each(function(shoe){ %>
-  <div class="col-xs-4">
-
-      <div class="panel panel-danger">
-        <div class="panel-heading">
-          <h3 class="panel-title"><%= shoe.escape("name") %></h3>
-        </div>
-        <div class="panel-body">
-          <a href="#/shoes/<%= shoe.get("id") %>">
-            <img src="<%= shoe.escape("shoe_photo") %>" class="img-responsive"/>
-          </a>
-        </div>
-        <div class="panel-footer">
-            <% var a = new Date(shoe.escape("updated_at")); %>
-            Reviewed by: <%= shoe.attributes["author"]["username"] %>, on: <%= a.toLocaleDateString() %>
-
-        </div>
-      </div>
+  <div class="col-xs-7">
 
   </div>
+  <div class="col-xs-5">
+    <ul class="nav nav-pills">
+       <li><a href="#"><img class="brand-logo" src="http://sports.kuchhbhi.biz/files/Brand_Name/logoCalcadosPuma.png"/><span class="badge"></span></a></li>
+      <li><a href="#"><img class="brand-logo" src="http://www.faurunforeign.com/admin/images/9164450826nike-logo-pnggallery-for-nike-football-logo-png-sp0d3sc2.jpg"/><span class="badge"></span></a></li>
+
+      <li><a href="#"><img class="brand-logo" src="http://ihighmarketing.com/wp-content/uploads/2013/06/CONVERSE-LOGO-e1370539797418.png"/><span class="badge"></span></a></li>
+
+
+     </ul>
+  </div>
+</div>
+
+
+<br/>
+<br/>
+<% var user_id = $("#current_user").attr("class"); %>
+
+<% if (user_id > 0) { %>
+<a href="#/shoes/new">Add a Review</a>
+<% } %>
+
+
+<div class="row">
+
+  <%  shoes.each(function(shoe) { %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <a href="#/shoes/<%= shoe.get("id") %>">
+          <img src="<%= shoe.escape("shoe_photo_lg") %>" class="img-responsive"/>
+        </a>
+      </div>
+      <div class="caption">
+        <h4><%= shoe.escape("name") %></h4>
+        <!--
+        <p>
+        <% var a = new Date(shoe.escape("updated_at")); %>
+        Reviewed by: <%= shoe.attributes["author"]["username"] %>, on: <%= a.toLocaleDateString() %>
+        </p>
+        -->
+
+        <p><!-- likes, favorites, tags --></p>
+      </div>
+    </div>
   <% }) %>
 </div>
 

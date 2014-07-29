@@ -1,34 +1,40 @@
 <% var user_id = $("#current_user").attr("class"); %>
 
 <% if (user_id > 0) { %>
-<button id="new-comment-button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#new-comment-modal">
-  Add Comment
-</button>
+
+
+
+    <button id="new-comment-button" class="btn btn-link btn-md" data-toggle="modal" data-target="#new-comment-modal">
+    Add Comment
+  </button>
+
+
 <% } %>
 
-<div id="new-comment-modal" class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-      <div class="form-group row">
-        <div class="col-lg-12">
+  <div id="new-comment-modal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+        <div class="form-group row">
+          <div class="col-lg-12">
 
-          <form id="add-comment-form">
-          <input type="hidden" id="user-needed" name="comment[comments_by]"
-          value="<%= user_id %>"/>
-          <input type="hidden" name="comment[model]" value="shoe" />
+            <form id="add-comment-form">
+            <input type="hidden" id="user-needed" name="comment[comments_by]"
+            value="<%= user_id %>"/>
+            <input type="hidden" name="comment[model]" value="shoe" />
 
-          <input type="hidden" name="comment[model_id]" value="<%= shoe.get("id") %>" />
-          <textarea class="form-control" rows="4" name="comment[content]"></textarea>
-          <br/>
-          <button type="button" class="btn btn-default btn-sml" data-dismiss="modal">Close</button>
-          <button type="reset" class="btn btn-default btn-sml">Reset</button>
-          <input id="save-comment" type="submit" class="btn btn-primary btn-sml" value="Submit"/>
-          </form>
+            <input type="hidden" name="comment[model_id]" value="<%= shoe.get("id") %>" />
+            <textarea class="form-control" rows="4" name="comment[content]"></textarea>
+            <br/>
+            <button type="button" class="btn btn-link btn-sml" data-dismiss="modal">Close</button>
+            <button type="reset" class="btn btn-link btn-sml">Reset</button>
+            <input id="save-comment" type="submit" class="btn btn-link btn-sml" value="Submit"/>
+            </form>
 
+          </div>
         </div>
-      </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+

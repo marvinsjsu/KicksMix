@@ -1,25 +1,33 @@
 <% var user_id = $("#current_user").attr("class"); %>
 
 <div class="container">
-  <div class="col-xs-9">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= shoe.escape("name") %> by <a class="author-page" href="<%= shoe.author_url %>"><%= shoe.author %></a></h3>
-      </div>
+  <div class="col-xs-12">
+    <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
-          <div class="col-xs-4">
-            <img src="<%= shoe.escape("shoe_photo") %>" class="img-responsive"/>
+          <div class="col-xs-6">
+            <img src="<%= shoe.escape("shoe_photo_lg") %>" class="img-responsive"/>
+            <br/>
+
+
+            <div id="comment-form">
+              <ul id="shoe-navigation" class="nav nav-pills"></ul>
+            </div>
+            <br/>
+            <div id="comments"></div>
           </div>
-          <div class="col-xs-7">
-            <%= shoe.escape("review") %>
+          <div class="col-xs-6">
+            <h2><%= shoe.escape("name") %></h2>
+
+             <p>
+               <%= shoe.escape("review") %>
+             </p>
+             <div id="likes-by-section" class="row"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div id="comment-form"></div>
-<br/>
-<div id="comments"></div>
+
 

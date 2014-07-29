@@ -19,14 +19,14 @@ KicksMix.Views.ReplyForm = Backbone.CompositeView.extend({
   },
 
   replyToComment: function(event) {
-    debugger;
+
     event.preventDefault();
     event.stopPropagation();
     var params = $(event.currentTarget).serializeJSON();
 
     var comment = new KicksMix.Models.Comment(params["comment"]);
 
-    debugger;
+
     var that = this;
     comment.save({
          parent_id: this.model.id,

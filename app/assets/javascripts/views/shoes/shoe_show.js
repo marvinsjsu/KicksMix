@@ -7,6 +7,7 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
     this.collection = this.model.comments();
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addComment);
+    this.listenTo(this.model.likedBy(), 'add', this.render);
 
     var commentCollection = this.model.comments();
     var commentsTree = {};
@@ -28,6 +29,15 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
     this.addSubview('#comments', view);
   },
 
+  addLikedBy: function(like) {
+
+    var view = new KicksMix.Views.ShoeLikedBy({
+      model: like
+    });
+
+    this.addSubview("#likes-by-section", view);
+  },
+
   render: function() {
     var content = this.template({
       shoe: this.model,
@@ -38,6 +48,9 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.renderComments();
     this.renderCommentForm();
+    this.renderShoeEditForm();
+    this.renderLikeButton();
+    this.renderLikesBy();
     return this;
   },
 
@@ -51,7 +64,28 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
       collection: this.collection
     });
 
-    this.addSubview('#comment-form', view);
+    //this.addSubview('#comment-form', view);
+    this.addSubview('#shoe-navigation', view);
+  },
+
+  renderShoeEditForm: function() {
+    var view = new KicksMix.Views.ShoeEdit({
+      model: this.model
+    });
+    this.addSubview("#shoe-navigation", view);
+  },
+
+  renderLikeButton: function() {
+
+    var view = new KicksMix.Views.ShoeLikeButton({
+      model: this.model
+    });
+    this.addSubview("#shoe-navigation", view);
+  },
+
+  renderLikesBy: function() {
+
+    this.model.likedBy().each(this.addLikedBy.bind(this));
   }
 });
 

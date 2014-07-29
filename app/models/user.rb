@@ -23,7 +23,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :photo_url, :styles => {
     :big => "600x600>",
-    :small => "50x50#"
+    :small => "70x70#",
+    :medium => "200x200"
   }
 
   validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
@@ -31,7 +32,8 @@ class User < ActiveRecord::Base
   has_many :shoes, class_name: 'Shoe', foreign_key: :author_id, primary_key: :id
   has_many :comments, :as => :commentable
   has_many :my_comments, class_name: "Comment", foreign_key: :comments_by, primary_key: :id
-
+  has_many :likes, class_name: 'Like', foreign_key: :user_id, primary_key: :id
+  has_many :liked_shoes, class_name: "Shoe", through: :likes
 
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, uniqueness: true

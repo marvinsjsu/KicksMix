@@ -1,5 +1,7 @@
 KicksMix.Views.CommentForm = Backbone.CompositeView.extend({
   template: JST["comments/form"],
+  tagName: 'li',
+  className: 'new-comment-form',
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.comments(), "sync", this.render);

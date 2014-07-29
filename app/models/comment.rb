@@ -9,6 +9,7 @@
 #  commentable_id   :integer
 #  commentable_type :string(255)
 #  comments_by      :integer
+#  parent_id        :integer
 #
 
 class Comment < ActiveRecord::Base

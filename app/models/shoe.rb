@@ -8,6 +8,7 @@
 #  review                  :text             not null
 #  price                   :float            not null
 #  brand                   :string(255)      not null
+#  author_id               :integer
 #  created_at              :datetime
 #  updated_at              :datetime
 #  shoe_photo_file_name    :string(255)
@@ -15,7 +16,7 @@
 #  shoe_photo_file_size    :integer
 #  shoe_photo_updated_at   :datetime
 #  shoe_photo              :string(255)
-#  author_id               :integer
+#  tag_line                :string(255)
 #
 
 class Shoe < ActiveRecord::Base
@@ -34,5 +35,7 @@ class Shoe < ActiveRecord::Base
   validates :name, uniqueness: true
 
   has_many :comments, :as => :commentable
+  has_many :likes, class_name: "Like", foreign_key: :shoe_id, primary_key: :id
+  has_many :liked_by, class_name: 'User', through: :likes
   belongs_to :author, class_name: 'User', foreign_key: :author_id, primary_key: :id
 end

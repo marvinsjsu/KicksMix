@@ -12,6 +12,58 @@
  *
  *= require_tree .
  *= require_self
+ *= require pen
  */
 @import "bootstrap";
 
+.thumbnail {
+display: block;
+padding: 4px;
+margin-bottom: 20px;
+line-height: 1.42857143;
+background-color: #fcfcfc;
+border: 1px solid #dddddd;
+border-radius: 4px;
+height: 270px;
+-webkit-transition: all .2s ease-in-out;
+-o-transition: all .2s ease-in-out;
+transition: all .2s ease-in-out;
+}
+
+
+.thumbnail h4 {
+  text-align: center;
+}
+
+.new-balance span {
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+background: url(http://www.minervastreetwear.com/wp-content/uploads/brand-logos/new_balance.jpg) no-repeat;
+background-position: 0 -100px;
+opacity: 0;
+-webkit-transition: opacity 0.5s;
+-moz-transition: opacity 0.5s;
+-o-transition: opacity 0.5s;
+}
+
+img.brand-logo {
+  height: 90%;
+  width: 90%;
+}
+
+ul.nav-pills li a{
+  width: 135px;
+  height: 70px;
+}
+img.top_logo {
+  position: relative;
+  top: -60px;
+  width: 540px;
+}
+img.img-thumbnail .small {
+  width: 30px;
+  height: 30px;
+}

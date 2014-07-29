@@ -17,6 +17,8 @@
 //= require jquery.serializejson
 //= require backbone
 //= require kicks_mix
+//= require pen
+//= require markdown
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
