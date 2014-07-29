@@ -39,7 +39,7 @@ class Api::CommentsController < ApplicationController
   private
 
   def comments_params
-    params.require(:comment).permit(:comments_by, :content);
+    params.require(:comment).permit(:comments_by, :content, :parent_id);
   end
 
   def find_commentable

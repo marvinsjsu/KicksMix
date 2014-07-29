@@ -36,7 +36,7 @@ KicksMix.Routers.Router = Backbone.Router.extend({
   },
 
   shoeEdit: function() {
-    alert("shoeEdit");
+
   },
 
   _swapView: function(newView) {
