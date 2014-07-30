@@ -22,9 +22,9 @@
 class Shoe < ActiveRecord::Base
 
   has_attached_file :shoe_photo, :styles => {
-     :big => "600x600>",
-     :small => "70x70#",
-     :medium => "200x200"
+     :big => "600x600",
+     :small => "70x70",
+     :medium => "400x400"
   }
 
   # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

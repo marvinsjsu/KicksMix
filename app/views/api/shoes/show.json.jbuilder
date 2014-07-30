@@ -1,8 +1,8 @@
 json.ignore_nil! true
 json.(@shoe, :id, :name, :category, :review, :price, :brand, :created_at, :updated_at, :shoe_photo)
 json.shoe_photo_sm @shoe.shoe_photo.url(:small)
-json.shoe_photo_md @shoe.shoe_photo.url(:md)
-json.shoe_photo_lg @shoe.shoe_photo.url(:lg)
+json.shoe_photo_md @shoe.shoe_photo.url(:medium)
+json.shoe_photo_lg @shoe.shoe_photo.url(:big)
 json.author @shoe.author, :id, :username, :description
 json.author_reviews @shoe.author.shoes, :id, :name, :category, :review, :price, :brand, :created_at, :updated_at, :shoe_photo
 

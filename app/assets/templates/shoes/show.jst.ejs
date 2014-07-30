@@ -1,5 +1,3 @@
-<% var user_id = $("#current_user").attr("class"); %>
-
 <div class="container">
   <div class="col-xs-12">
     <div class="panel panel-default">
@@ -8,8 +6,6 @@
           <div class="col-xs-6">
             <img src="<%= shoe.escape("shoe_photo_lg") %>" class="img-responsive"/>
             <br/>
-
-
             <div id="comment-form">
               <ul id="shoe-navigation" class="nav nav-pills"></ul>
             </div>
@@ -22,7 +18,15 @@
              <p>
                <%= shoe.escape("review") %>
              </p>
-             <div id="likes-by-section" class="row"></div>
+
+
+
+            <div class="panel panel-default col-xs-12">
+              <div class="panel-heading centered">liked this shoe</div>
+              <div class="panel-body">
+                <div id="likes-by-section" class="row"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

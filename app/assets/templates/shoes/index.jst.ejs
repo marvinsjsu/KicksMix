@@ -3,6 +3,7 @@
   <div class="col-xs-7">
 
   </div>
+<!--
   <div class="col-xs-5">
     <ul class="nav nav-pills">
        <li><a href="#"><img class="brand-logo" src="http://sports.kuchhbhi.biz/files/Brand_Name/logoCalcadosPuma.png"/><span class="badge"></span></a></li>
@@ -12,6 +13,7 @@
 
 
      </ul>
+-->
   </div>
 </div>
 
@@ -26,25 +28,11 @@
 
 
 <div class="row">
-
   <%  shoes.each(function(shoe) { %>
     <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <a href="#/shoes/<%= shoe.get("id") %>">
-          <img src="<%= shoe.escape("shoe_photo_lg") %>" class="img-responsive"/>
-        </a>
-      </div>
-      <div class="caption">
-        <h4><%= shoe.escape("name") %></h4>
-        <!--
-        <p>
-        <% var a = new Date(shoe.escape("updated_at")); %>
-        Reviewed by: <%= shoe.attributes["author"]["username"] %>, on: <%= a.toLocaleDateString() %>
-        </p>
-        -->
-
-        <p><!-- likes, favorites, tags --></p>
-      </div>
+      <a href="#/shoes/<%= shoe.get("id") %>">
+        <img src="<%= shoe.escape("shoe_photo_md") %>" class="img-responsive index"/>
+      </a>
     </div>
   <% }) %>
 </div>
