@@ -69,7 +69,17 @@ img.img-thumbnail .small {
 }
 
 img.index {
-  margin-top: 5em;
+  margin-top: 4em;
+  -moz-box-shadow: 0 0 10px #ccc;
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px #ccc;
+}
+img.index:hover, button img:hover {
+  -moz-box-shadow: 0 0 35px #ccc;
+  -webkit-box-shadow: 0 0 35px  #ccc;
+  box-shadow: 0 0 35px  #ccc;
+  opacity: 0.8;
+  filter: alpha(opacity=30);
 }
 
 .center-block {
@@ -78,6 +88,8 @@ img.index {
   margin-right: auto;
 }
 
-.panel-heading, .centered {
+.centered {
   text-align: center;
 }
+
+

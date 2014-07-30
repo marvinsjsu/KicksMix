@@ -8,6 +8,7 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addComment);
     this.listenTo(this.model.likedBy(), 'add', this.render);
+    this.listenTo(this.model.matchingItems(), 'add', this.renderMatchingItems);
 
     var commentCollection = this.model.comments();
     var commentsTree = {};
@@ -38,6 +39,14 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
     this.addSubview("#likes-by-section", view);
   },
 
+  addMatchingItems: function(matchingItem) {
+    var view = new KicksMix.Views.ShoeMatchingItem({
+      model: matchingItem
+    });
+
+    this.addSubview("#mix-n-match-section", view);
+  },
+
   render: function() {
     var content = this.template({
       shoe: this.model,
@@ -51,6 +60,8 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
     this.renderShoeEditForm();
     this.renderLikeButton();
     this.renderLikesBy();
+    this.renderMatchingItemButton();
+    this.renderMatchingItems();
     return this;
   },
 
@@ -86,6 +97,17 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
   renderLikesBy: function() {
 
     this.model.likedBy().each(this.addLikedBy.bind(this));
+  },
+
+  renderMatchingItemButton: function() {
+    var view = new KicksMix.Views.ShoeMatchButton({
+      model: this.model
+    });
+    this.addSubview("#shoe-navigation", view);
+  },
+
+  renderMatchingItems: function() {
+    this.model.matchingItems().each(this.addMatchingItems.bind(this));
   }
 });
 

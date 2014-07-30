@@ -25,10 +25,8 @@ KicksMix.Views.CommentShow = Backbone.CompositeView.extend({
     var content = this.template({
       comment: this.model
     });
-    console.log("comment show render")
-    console.log(content);
+
     this.$el.html(content);
-    console.log(this.$el.html());
     this.$el.data('comment-id', this.model.id);
     this.renderComments();
     this.renderReplyForm();
@@ -42,10 +40,8 @@ KicksMix.Views.CommentShow = Backbone.CompositeView.extend({
   renderReplyForm: function() {
     var view = new KicksMix.Views.ReplyForm({
       model: this.model
-      //collection: this.collection
     });
-    console.log(view)
-    // this.$(".reply-area").html("");
+
     this.addSubview('.reply-area:first', view);
   }
 });

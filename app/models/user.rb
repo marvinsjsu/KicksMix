@@ -33,7 +33,8 @@ class User < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_many :my_comments, class_name: "Comment", foreign_key: :comments_by, primary_key: :id
   has_many :likes, class_name: 'Like', foreign_key: :user_id, primary_key: :id
-  has_many :liked_shoes, class_name: "Shoe", through: :likes
+  has_many :liked_shoes, through: :likes, source: :item_liked
+  has_many :recommended_mix, class_name: 'Mix', foreign_key: :user_id, primary_key: :id
 
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, uniqueness: true

@@ -7,11 +7,11 @@ KicksMix.Views.ShoeLikedBy = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click" : "showModalInfo"
+   //"click" : "showModalInfo"
   },
 
   showModalInfo: function() {
-    alert("showModalInfo");
+    alert(JSON.stringify(this.model));
   },
 
   render: function () {

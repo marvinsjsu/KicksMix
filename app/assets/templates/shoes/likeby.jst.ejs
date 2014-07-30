@@ -1,5 +1,34 @@
-<button type="button" class="btn btn-link" aria-describedby="popover34660">
+<button data-toggle="modal" data-target="#liked-by-modal-<%= like.get("id")%>" type="button" class="btn btn-link" aria-describedby="popover34660">
   <img class="img-thumbnail img-responsive small" src="<%= like.escape("photo_url")%>" />
 </button>
+
+
+
+<div id="liked-by-modal-<%= like.get("id")%>" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title centered"><%= like.escape("username") %></h4>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive small" src="<%= like.escape("photo_url")%>" />
+      </div>
+      <div class="modal-footer">
+      <div class="list-group col-xs-12">
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">snippet of myself</h4>
+          <p class="list-group-item-text">
+            <%= like.escape("description") %>
+          </p>
+        </a>
+        <a href="#" class="list-group-item">
+
+        </a>
+      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 

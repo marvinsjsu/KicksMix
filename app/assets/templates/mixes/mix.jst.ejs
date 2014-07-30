@@ -1,0 +1,25 @@
+<button data-toggle="modal" data-target="#add-to-mix-modal" type="button" class="btn btn-link" aria-describedby="popover34660">
+  Add to the Mix
+</button>
+
+<div id="add-to-mix-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+      <form id="add-mix-form" enctype="multipart/form-data">
+        <textarea class="form-control" rows="4" name="mixes[description]"></textarea>
+        <br/>
+        <input type="file" id="mix_photo" name="mixes[mix_photo]" multiple accept="image/png,image/gif,image/jpeg" class="btn btn-primary"/>
+
+        <br/>
+        <button type="button" class="btn btn-link btn-sml" data-dismiss="modal">Close</button>
+        <button type="reset" class="btn btn-link btn-sml">Reset</button>
+        <input id="save-mix" type="submit" class="btn btn-link btn-sml" value="Submit"/>
+      </form>
+
+      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

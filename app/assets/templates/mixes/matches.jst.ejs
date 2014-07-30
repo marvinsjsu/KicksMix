@@ -1,0 +1,26 @@
+<button data-toggle="modal" data-target="#mixes-by-modal-<%= matching_item.get("id") %>" type="button" class="btn btn-link" aria-describedby="popover34660">
+  <img class="img-thumbnail img-responsive small" src="<%= matching_item.escape("mix_photo_sm") %>" />
+</button>
+
+
+
+<div id="mixes-by-modal-<%= matching_item.get("id") %>" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title centered">mix item</h4>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive small" src="<%= matching_item.escape("mix_photo_lg")%>" />
+      </div>
+      <div class="modal-footer">
+      <div class="list-group col-xs-12">
+        <%= matching_item.escape("description") %>
+      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+

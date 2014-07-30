@@ -2,7 +2,9 @@ KicksMix.Views.ShoeLikeButton = Backbone.CompositeView.extend({
   template: JST['shoes/like'],
   tagName: 'li',
   className: 'shoes-like',
-
+  // initialize: function() {
+  //   this.listenTo(this.model.likedBy(), "sync", this.render);
+  // },
   events: {
     "click .like-button": "addLike"
   },

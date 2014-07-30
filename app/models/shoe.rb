@@ -37,5 +37,6 @@ class Shoe < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_many :likes, class_name: "Like", foreign_key: :shoe_id, primary_key: :id
   has_many :liked_by, class_name: 'User', through: :likes
+  has_many :matching_items, class_name: 'Mix', foreign_key: :shoe_id, primary_key: :id
   belongs_to :author, class_name: 'User', foreign_key: :author_id, primary_key: :id
 end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :shoes, only: [:index, :show, :create, :update, :destroy], :has_many => :comments do
       resources :comments, only: [:create, :destroy, :update], :has_many => :comments
       resources :likes, only: [:create, :destroy]
+      resources :mixes, only: [:index, :create, :destroy]
     end
 
     resources :comments do

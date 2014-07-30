@@ -3,8 +3,8 @@
 # Table name: likes
 #
 #  id         :integer          not null, primary key
-#  shoe_id    :integer          not null
-#  user_id    :integer          not null
+#  shoe_id    :integer
+#  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
