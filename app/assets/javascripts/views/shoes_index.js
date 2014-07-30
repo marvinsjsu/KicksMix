@@ -9,6 +9,7 @@ KicksMix.Views.ShoesIndex = Backbone.View.extend({
     });
 
     this.$el.html(content);
+    this.$('.Collage').collagePlus();
     return this;
   }
 });

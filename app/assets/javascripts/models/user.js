@@ -16,6 +16,11 @@ KicksMix.Models.User = Backbone.Model.extend({
     return this._my_comments;
   },
 
+  my_shoes: function() {
+    this._my_shoes = this._my_shoes || new KicksMix.Collections.Shoes([], { obj: this });
+    return this._my_shoes;
+  },
+
   parse: function(response) {
     if (response.comments) {
       this.comments().set(response.comments, { parse: true });
@@ -25,6 +30,9 @@ KicksMix.Models.User = Backbone.Model.extend({
     }
     if (response.shoe_likes) {
       this.liked_shoes().set(response.shoe_likes, { parse: true });
+    }
+    if (response.my_shoes) {
+      this.my_shoes().set(response.my_shoes, { parse: true });
     }
 
     return response;

@@ -18,4 +18,11 @@ json.shoes @shoes.each do |json, shoe|
    json.(comment.commenter, :username, :photo_url, :description)
  end
 
+
+  json.liked_by shoe.liked_by do |json, like|
+    json.(like, :id, :username, :description, :email, :photo_url, :created_at, :updated_at)
+    json.photo_url_sm like.photo_url.url(:small)
+    json.photo_url_md like.photo_url.url(:medium)
+    json.photo_url_lg like.photo_url.url(:big)
+  end
 end

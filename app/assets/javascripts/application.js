@@ -19,6 +19,7 @@
 //= require kicks_mix
 //= require pen
 //= require markdown
+//= require jquery.collagePlus
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

@@ -1,40 +1,52 @@
-
 <div class="row">
-  <div class="col-xs-7">
 
-  </div>
-<!--
-  <div class="col-xs-5">
-    <ul class="nav nav-pills">
-       <li><a href="#"><img class="brand-logo" src="http://sports.kuchhbhi.biz/files/Brand_Name/logoCalcadosPuma.png"/><span class="badge"></span></a></li>
-      <li><a href="#"><img class="brand-logo" src="http://www.faurunforeign.com/admin/images/9164450826nike-logo-pnggallery-for-nike-football-logo-png-sp0d3sc2.jpg"/><span class="badge"></span></a></li>
+  <div class="col-xs-12">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
 
-      <li><a href="#"><img class="brand-logo" src="http://ihighmarketing.com/wp-content/uploads/2013/06/CONVERSE-LOGO-e1370539797418.png"/><span class="badge"></span></a></li>
+  <% var count = 0; %>
 
-
-     </ul>
--->
-  </div>
-</div>
-
-
-<br/>
-<br/>
-<% var user_id = $("#current_user").attr("class"); %>
-
-<% if (user_id > 0) { %>
-<a href="#/shoes/new">Add a Review</a>
-<% } %>
-
-
-<div class="row">
   <%  shoes.each(function(shoe) { %>
-    <div class="col-sm-6 col-md-4">
-      <a href="#/shoes/<%= shoe.get("id") %>">
-        <img src="<%= shoe.escape("shoe_photo_md") %>" class="img-responsive index"/>
-      </a>
-    </div>
+
+      <% if (count === 0) { %>
+        <div class="item active row">
+      <% } else if (count % 3 === 0) { %>
+        <div class="item row">
+      <% } %>
+      <% count++; %>
+
+          <div class="image-index">
+            <a href="#/shoes/<%= shoe.get("id") %>" class="col-xs-4 centered-item">
+              <img src="<%= shoe.escape("shoe_photo_md") %>" class="img-responsive index inline-image"/>
+              <h4><%= shoe.escape("name") %></h4>
+              <h4 class="matches">
+                <%= shoe.likedBy().length %> likes,
+                <%= shoe.matchingItems().length %> mixes,
+                <%= shoe.comments().length %> comments
+              </h4>
+            </a>
+          </div>
+
+     <% if (count % 3 === 0) { %>
+      </div>
+     <% } %>
+
   <% }) %>
+
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+  </div>
+  </div>
 </div>
+
+
 
 <div id="page" class="Kicks Reviews"></div>
