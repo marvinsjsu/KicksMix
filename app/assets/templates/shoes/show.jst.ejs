@@ -1,3 +1,5 @@
+<% var user = JSON.parse($("#bootstrapped_current_user_json").html()) %>
+
 <div class="container">
   <div class="col-xs-12">
     <div class="panel panel-default">
@@ -50,7 +52,9 @@
             </div>
 
             <div id="comment-form">
-              <ul id="shoe-navigation" class="nav nav-pills"></ul>
+              <% if (user.current_user) { %>
+                <ul id="shoe-navigation" class="nav nav-pills"></ul>
+              <% } %>
             </div>
 
             <div class="panel panel-default col-xs-12">

@@ -3,7 +3,7 @@ KicksMix.Views.ShoeMatchButton = Backbone.CompositeView.extend({
   tagName: 'li',
   className: 'shoes-mix',
   initialize: function() {
-    this.listenTo(this.model.matchingItems(), "sync", this.render);
+   // this.listenTo(this.model.matchingItems(), "add", this.render);
   },
   events: {
     "submit form#add-mix-form" : "addMatchingItem"
@@ -29,11 +29,13 @@ KicksMix.Views.ShoeMatchButton = Backbone.CompositeView.extend({
         params["mixes"].shoe_id = view.model.id;
         params["mixes"].user_id = user.current_user.id;
 
-        debugger;
         var mix = new KicksMix.Models.Mix(params);
         mix.save({}, {
-          success: function() {
-            view.model.matchingItems().add(mix);
+          success: function(model, response, option) {
+            //alert(JSON.stringify(response));
+
+            view.model.matchingItems().set(response.matching_items);
+
           }
         });
 

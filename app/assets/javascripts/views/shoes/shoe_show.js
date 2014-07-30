@@ -9,6 +9,8 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'add', this.addComment);
     this.listenTo(this.model.likedBy(), 'add', this.render);
     this.listenTo(this.model.matchingItems(), 'add', this.renderMatchingItems);
+   // this.listenTo(this.model.matchingItems(), 'add', this.renderMatchingItems);
+   // this.listenTo(this.model.matchingItems(), 'add', this.addMatchingItems);
 
     var commentCollection = this.model.comments();
     var commentsTree = {};
@@ -107,6 +109,7 @@ KicksMix.Views.ShoeShow = Backbone.CompositeView.extend({
   },
 
   renderMatchingItems: function() {
+    this.$("#mix-n-match-section").html("");
     this.model.matchingItems().each(this.addMatchingItems.bind(this));
   }
 });
