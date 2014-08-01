@@ -1,11 +1,16 @@
-<div class="col-xs-4"></div>
+<div class="col-xs-5">
+  <h1 class="kicks-mix-logo">
+    Kicks Mix
+  </h1>
+</div>
+
 <div id="user-login" class="user-prompt col-xs-4">
 
   <%= render partial: "layouts/errors" %>
 
   <form action="<%= users_url %>" method="POST" class="form-horizontal">
     <fieldset>
-      <legend>join, and get in the mix</legend>
+      <legend>join us</legend>
       <%= render partial: "layouts/form", locals: { user: @user } %>
       <input type="submit" value="sign up" class="btn btn-link"/>
       <%= link_to "already signed up?", new_session_url %>
@@ -13,3 +18,4 @@
   </form>
 
 </div>
+

@@ -1,9 +1,14 @@
-<div class="row">
+<div class="container">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+
   <div class="col-xs-3"></div>
   <div class="col-xs-6 center-block">
   <form id="add-review" class="form-horizontal" enctype="multipart/form-data">
     <fieldset>
-      <legend>Create Review</legend>
+      <legend>add a shoe posting</legend>
       <div class="form-group">
 <!--        <label for="shoe_name" class="col-lg-2 control-label">Shoe Name</label> -->
         <div class="col-lg-10">
@@ -15,7 +20,7 @@
 <!--        <label for="shoe_brand" class="col-lg-2 control-label">Brand</label> -->
         <div class="col-lg-10">
           <select class="form-control" id="shoe_brand" name="shoe[brand]">
-            <option id="add-category">Add new brand</option>
+            <option id="add-category">add new brand</option>
             <option value="Adidas">Adidas</option>
             <option value="Air Jordan">Air Jordan</option>
             <option value="Asics">Asics</option>
@@ -38,7 +43,7 @@
 <!--        <label for="shoe_category" class="col-lg-2 control-label">Category</label> -->
         <div class="col-lg-10">
           <select class="form-control" id="shoe_category" name="shoe[category]">
-            <option id="add-category">Add category</option>
+            <option id="add-category">add category</option>
             <option value="casual">Casual</option>
             <option value="formal">Formal</option>
             <option value="basketball">Basketball</option>
@@ -71,32 +76,36 @@
       </div>
   -->
       <div class="form-group">
+        <span class="help-block">
+          post shoe review here.
+        </span>
 <!--        <label for="shoe_review" class="col-lg-2 control-label">Review</label> -->
         <div class="col-lg-10">
           <textarea class="form-control" rows="5" id="shoe_review" name="shoe[review]"></textarea>
-          <span class="help-block">
-            Post shoe review here.
-          </span>
         </div>
       </div>
 
       <div class="form-group">
+        <span class="help-block">
+          upload photo here.
+        </span>
 <!--        <label for="shoe_photo" class="col-lg-2 control-label">Photo</label> -->
         <div class="col-lg-10">
-          <input type="file" id="shoe_photo" name="shoe[shoe_photo]" multiple accept="image/png,image/gif,image/jpeg" class="btn btn-primary"/>
-          <span class="help-block">
-            Upload photo here.
-          </span>
+          <input type="file" id="shoe_photo" name="shoe[shoe_photo]" multiple accept="image/png,image/gif,image/jpeg" class="btn btn-link"/>
+
         </div>
       </div>
 
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-          <input type="reset" class="btn btn-default" value="Reset">
-          <input type="submit" class="btn btn-primary" value="Submit">
+          <input type="reset" class="btn btn-link" value="Reset">
+          <input type="submit" class="btn btn-link" value="Submit">
         </div>
       </div>
     </fieldset>
   </form>
   </div>
+</div>
+</div>
+</div>
 </div>

@@ -25,13 +25,6 @@ class Shoe < ActiveRecord::Base
      :big => "600x600",
      :small => "70x70",
      :medium => "400x400"
-  },
-  :storage => :s3,
-  :bucket => 'kicksmixproduction',
-  :s3_credentials => {
-    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
-    :s3_host_name => 's3-us-west-1.amazonaws.com'
   }
 
   # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
