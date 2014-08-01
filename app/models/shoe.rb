@@ -27,8 +27,8 @@ class Shoe < ActiveRecord::Base
      :medium => "400x400"
   },
   :storage => :s3,
+  :bucket => 'kicksmixproduction',
   :s3_credentials => {
-    :bucket => ENV['AWS_BUCKET_PRODUCTION'], #these values safely stored in application.yml thanks to figaro!
     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
     :s3_host_name => 's3-us-west-1.amazonaws.com'
