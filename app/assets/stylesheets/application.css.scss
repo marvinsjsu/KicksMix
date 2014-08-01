@@ -39,11 +39,11 @@ h1.logo-png {
   position: relative;
 }
 
-h2.logo-png-small {
-  width: 300px;
-  height: 170px;
+h4.logo-png-small {
+  width: 180px;
+  height: 60px;
   background: url("logo.png")  no-repeat;
-  background-size: 218px 155px;
+  background-size: 170px 50px;
   text-indent: -9999px;
   left: -5px;
   top: -90px;
@@ -152,8 +152,41 @@ img.inline-image {
   text-align: center;
 }
 
+.list-group {
+    text-align: center;
+}
 .list-group .img-thumbnail {
   margin: 0 auto;
 }
+
+ul#main-navigation li a {
+  font-size: 1.2em;
+}
+
+.circular {
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  margin: 0 auto;
+}
+.aimee {
+    background: url("aimee.jpg") no-repeat;
+    background-size: 250px;
+    background-position: -20px -10px,
+                         center;
+}
+.calvin{
+    background: url("calvin.jpg") no-repeat;
+    background-size: 195px;
+    background-position: 0px -20px,
+                         center;
+}
+.marvin {
+    background: url("marvin.jpg") no-repeat;
+    background-size: 180px;
+}
+
 
 

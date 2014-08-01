@@ -23,7 +23,7 @@
           <input type="text" class="form-control col-lg-8" placeholder="Search">
         </form>
 -->
-        <ul class="nav navbar-nav navbar-right">
+        <ul id="main-navigation" class="nav navbar-nav navbar-right">
           <li><a id="AllKicks" href="/">all kicks</a></li>
           <%= render partial: "layouts/addshoes" %>
           <li><%= link_to "shoe heads", users_url %></li>
@@ -41,6 +41,9 @@
 
 
     </div>
+
+
   </div>
+   <%= render partial: "layouts/footer" %>
 </body>
 </html>

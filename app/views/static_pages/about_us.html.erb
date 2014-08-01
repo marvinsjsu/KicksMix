@@ -1,78 +1,93 @@
-<div class="jumbotron">
-  <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-    <li class="active"><a href="#team" data-toggle="tab">The Team</a></li>
-    <li><a href="#inspiration" data-toggle="tab">Inspiration</a></li>
-    <li><a href="#ingredients" data-toggle="tab">Ingredients</a></li>
-  </ul>
-  <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active in" id="team">
-      <div class="row">
-        <div class="col-xs-4">
-          <p>Aimee</p>
-        </div>
-        <div class="col-xs-4">
-          <p>Calvin</p>
-        </div>
-        <div class="col-xs-4">
-          <p>Marvin</p>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="inspiration">
-      <p>
-        Kicks Mix is a site dedicated to the exploration of creativity and expression through ... what else, kicks!
-      </p>
-      <p>
-        <ul>
-          <li><a href="http://www.cycletree.co">CycleTree.co</a></li>
-          <li><a href="http://solecollector.com/Sneakers/Kicksology/">Kicksology / Sole Collector</a></li>
-          <li><a href="http://www.jpcustomkicks.com/">JP Custom Kicks</a></li>
-          <li><a href="http://www.eastbay.com/">Eastbay</a></li>
-        </ul>
-      </p>
-    </div>
-    <div class="tab-pane fade" id="ingredients">
-      <div class="row">
-        <div class="col-xs-4">
-          <h4>some of the Ruby Gems ... </h4>
-          <ul class="list-group">
-            <li class="list-group-item">jQuery / jQUery UI</li>
-            <li class="list-group-item">jBuilder</li>
-            <li class="list-group-item">AWS SDK - S3 buckets for storing images</li>
-            <li class="list-group-item">BCrypt - creating an "encrypted" password (password digest)</li>
-            <li class="list-group-item">Paperclip - uploading images </li>
-            <li class="list-group-item">Figaro - git ignore secret config files</li>
-          </ul>
-        </div>
-        <div class="col-xs-4">
-          <h4>Overall Design</h4>
-          <ul>
-            <li>RESTful API via Ruby on Rails </li>
-            <li>JQuery and Backbone for Client-side User interaction
-                <ul>
-                  <li>AJAX</li>
-                  <li>Modal Forms</li>
-                  <li>Tooltips</li>
+<div class="container">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="col-xs-2"></div>
+          <div class="col-xs-8">
+            <h2>
+              Kicks Mix is a site dedicated to the exploration of creativity and expression through ... what else, kicks!
+            </h2><br/><br/>
+            <h3 class="centered">Share your shoes to the world and get a mix started.  This mix is a about the sharing of that passion for kicks through conversation and ideas on what can make a bold statement of yourself.  </h3>
+            <br/><br/>
+            <h3>The design and functionality of the site is inspired by ...</h3><br/>
+
+              <div class="col-xs-2"></div>
+              <div class="list-group col-xs-8">
+                <a href="http://www.cycletree.co" class="list-group-item">
+                  <h4 class="list-group-item-heading">CycleTree.co</h4>
+                  <p class="list-group-item-text">App Academy Project on RoR and Backbone. Clean design, awesome look and solid functionality</p>
+                </a>
+                <a href="http://solecollector.com/Sneakers/Kicksology/" class="list-group-item">
+                  <h4 class="list-group-item-heading">Kicksology / Sole Collector</h4>
+                  <p class="list-group-item-text">Source of shoe reviews and was hooked to this site a long long time ago.</p>
+                </a>
+                <a href="http://www.jpcustomkicks.com/" class="list-group-item">
+                  <h4 class="list-group-item-heading">JP Custom Kicks</h4>
+                  <p class="list-group-item-text">Customized shoes, sick shoes ... beautiful images.</p>
+                </a>
+                <a href="http://www.eastbay.com/" class="list-group-item">
+                  <h4 class="list-group-item-heading">Eastbay</h4>
+                  <p class="list-group-item-text">Shoe pictures and reviews</p>
+                </a>
+              </div>
+
+          </div>
+          <div class="col-xs-2"></div>
+
+
+       </div>
+<br/></br>
+       <div class="row">
+
+          <div class="col-xs-2"></div>
+          <div class="col-xs-8">
+            <h3>Site Components ...</h3><br/>
+
+              <div class="col-xs-2"></div>
+
+              <div class="col-xs-8">
+
+
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    RESTful API via Ruby on Rails
+                  </li>
+                  <li class="list-group-item">
+                    JQuery / Backbone / jBuilder for Client-side User interaction
+                        <ul>
+                          <li>jBuilder - JSON responses</li>
+                          <li>AJAX calls</li>
+                          <li>Modal Forms</li>
+                        </ul>
+                  </li>
+                  <li class="list-group-item">
+                    Paperclip and AWS S3 - static file storage
+                  </li>
+                  <li class="list-group-item">
+                    Backbone / Composite View Design
+                      <ul>
+                        <li>All Shoes Page (index display)</li>
+                        <li>Detailed Shoe Page (shoe display - composite view)</li>
+                      </ul>
+                  </li>
+                  <li class="list-group-item">
+                    User Authentication and Session Management in Ruby On Rails
+                      <ul>
+                        <li>BCrypt (password digest) / SecureRandom (session token)</li>
+                      </ul>
+                  </li>
+                  <li class="list-group-item">
+                    Bootstrap for CSS / Simplex Theme
+                  </li>
                 </ul>
-            </li>
-            <li>Backbone / Composite View Design
-              <ul>
-                <li>All Shoes Page (index display)</li>
-                <li>Detailed Shoe Page (shoe display - composite view)</li>
-              </ul>
-            </li>
-            <li>User Authentication and Session Management in Ruby On Rails</li>
-            <li>Bootstrap for CSS / Simplex Theme</li>
-          </ul>
-        </div>
-        <div class="col-xs-4">
-          <h4>Ruby Gems</h4>
-          <ul>
-            <li>BCrypt - creating an "encrypted" password (password digest)</li>
-            <li>Paperclip - uploading images </li>
-            <li>AWS - </li>
-          </ul>
-        </div>
+              </div>
+            </div>
+          </div>
+
+
+       </div>
       </div>
     </div>
   </div>
