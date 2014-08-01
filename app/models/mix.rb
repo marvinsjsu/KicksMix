@@ -22,7 +22,7 @@ class Mix < ActiveRecord::Base
     :small => "70x70#",
     :medium => "200x200"
   },
-  :bucket  => ENV['MY_BUCKET_NAME']
+  :bucket => 'kicksmixproduction'
 
   validates_attachment :mix_photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 

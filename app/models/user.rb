@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
     :big => "600x600>",
     :small => "70x70#",
     :medium => "200x200"
-  }
+  },
+  :bucket => 'kicksmixproduction'
 
   validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
