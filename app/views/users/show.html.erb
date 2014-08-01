@@ -1,19 +1,98 @@
-<div class="user-info jumbotron">
-  <div class="row">
-    <div class="user-photo col-xs-4">
-      <div class="img-thumbnail">
-        <% if @user.photo_url%>
-          <%= image_tag @user.photo_url %>
-        <% else %>
-          <%= image_tag("missing.png")%>
-        <% end %>
+<div class="container">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="col-xs-7">
+            <div class="panel panel-default col-xs-12">
+              <div class="panel-heading centered">kicks</div>
+              <div class="panel-body">
+
+                <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+                  <li class="active"><a href="#home" data-toggle="tab">my collection</a></li>
+                  <li><a href="#my-likes" data-toggle="tab">my likes</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                  <div class="tab-pane fade active in" id="home">
+                    <ul class="list-group">
+                    <% @user.shoes.each do |shoe| %>
+                      <li class="list-group-item col-xs-12">
+                      <div class="col-xs-2">
+                        <a href="<%= root_url %>#/shoes/<%= shoe.id %>">
+                          <img src="<%= shoe.shoe_photo(:small)%>"/>
+                        </a>
+                      </div>
+
+                      <div class="col-xs-8">
+
+
+                        <% shoe.comments.each do |comment| %>
+                          <blockquote>"<%= comment.content %>" by <%= link_to comment.commenter.username, user_url(comment.commenter) %></blockquote>
+                        <% end %>
+
+                        <h5>liked by</h5>
+                        <% shoe.liked_by.each do |liker| %>
+                        <a href="<%= user_url(liker) %>">
+                          <div class="img-thumbnail"><img class="index" src="<%= liker.photo_url(:small) %>"></div>
+                        </a>
+                        <% end %>
+                      </div>
+                      </li>
+                    <% end %>
+                    </ul>
+                  </div>
+                  <div class="tab-pane fade in" id="my-likes">
+                    <% @user.liked_shoes.each do |shoe| %>
+                      <div class="col-xs-2">
+                        <a href="<%= root_url %>#/shoes/<%= shoe.id %>">
+                          <img src="<%= shoe.shoe_photo(:small)%>"/>
+                        </a>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-5">
+            <div class="panel panel-default col-xs-12">
+              <div class="panel-heading centered"><h4><%= @user.username %></h4></div>
+                <div class="panel-body">
+                  <div class="list-group row">
+                    <div class="img-thumbnail">
+                      <% if @user.photo_url %>
+                        <%= image_tag @user.photo_url(:medium) %>
+                      <% else %>
+                        <%= image_tag("missing.png")%>
+                      <% end %>
+                    </div>
+                    <br/><br/>
+                    <h4></h4>
+
+
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <a href="mailto:<%= @user.email %>"> <%= @user.email %></a>
+                      </li>
+                      <li class="list-group-item">
+                        <p><%= @user.description %></p>
+                      </li>
+                      <li class="list-group-item">
+                        <% if @user.id == get_current_user.id %>
+                        <%= link_to "edit my profile", edit_user_url(@user) %>
+                        <% end %>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
+        </div>
       </div>
-    </div>
-    <div class="user-details col-xs-6">
-      <h2><%= @user.username %></h2>
-      <h4><a href="mailto:<%= @user.email %>"> <%= @user.email %></a></h4>
-      <p><%= @user.description %></p>
-      <%= link_to "Edit My Profile", edit_user_url(@user) %>
     </div>
   </div>
 </div>

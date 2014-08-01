@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require underscore
 //= require jquery.serializejson
+//= require owl.carousel.js
 //= require backbone
 //= require kicks_mix
 //= require pen

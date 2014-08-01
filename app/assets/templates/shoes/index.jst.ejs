@@ -1,50 +1,21 @@
 <div class="row">
 
-  <div class="col-xs-12">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
+     <%  shoes.each(function(shoe) { %>
+       <a href="#/shoes/<%= shoe.get("id") %>" class="col-xs-4 centered-item">
+       <div class="image-index">
+         <h4><%= shoe.escape("name") %><br/></h4>
+         <h4 class="matches">
+           <%= shoe.likedBy().length %> likes,
+           <%= shoe.matchingItems().length %> mixes,
+           <%= shoe.comments().length %> comments
+         </h4>
 
-  <% var count = 0; %>
+           <img src="<%= shoe.escape("shoe_photo_md") %>" class="img-responsive index inline-image"/>
 
-  <%  shoes.each(function(shoe) { %>
+       </div>
+        </a>
+     <% }); %>
 
-      <% if (count === 0) { %>
-        <div class="item active row">
-      <% } else if (count % 3 === 0) { %>
-        <div class="item row">
-      <% } %>
-      <% count++; %>
-
-          <div class="image-index">
-            <a href="#/shoes/<%= shoe.get("id") %>" class="col-xs-4 centered-item">
-              <img src="<%= shoe.escape("shoe_photo_md") %>" class="img-responsive index inline-image"/>
-              <h4><%= shoe.escape("name") %></h4>
-              <h4 class="matches">
-                <%= shoe.likedBy().length %> likes,
-                <%= shoe.matchingItems().length %> mixes,
-                <%= shoe.comments().length %> comments
-              </h4>
-            </a>
-          </div>
-
-     <% if (count % 3 === 0) { %>
-      </div>
-     <% } %>
-
-  <% }) %>
-
-    </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-
-  </div>
-  </div>
 </div>
 
 

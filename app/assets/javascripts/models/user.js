@@ -28,7 +28,7 @@ KicksMix.Models.User = Backbone.Model.extend({
     if (response.my_comments) {
       this.my_comments().set(response.my_comments, { parse: true });
     }
-    if (response.shoe_likes) {
+    if (response.liked_shoes) {
       this.liked_shoes().set(response.shoe_likes, { parse: true });
     }
     if (response.my_shoes) {

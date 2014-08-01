@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  *= require pen
+ *= require owl.carousel.css
+ *= require owl.transitions.css
+ *= require owl.theme.css
  *= require transitions
  */
 @import "bootstrap";
@@ -34,25 +37,6 @@ transition: all .2s ease-in-out;
 
 .thumbnail h4 {
   text-align: center;
-}
-
-.new-balance span {
-position: absolute;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-background: url(http://www.minervastreetwear.com/wp-content/uploads/brand-logos/new_balance.jpg) no-repeat;
-background-position: 0 -100px;
-opacity: 0;
--webkit-transition: opacity 0.5s;
--moz-transition: opacity 0.5s;
--o-transition: opacity 0.5s;
-}
-
-img.brand-logo {
-  height: 90%;
-  width: 90%;
 }
 
 ul.nav-pills li a{
@@ -92,33 +76,39 @@ img.index:hover, button img:hover {
   text-align: center;
 }
 
-
 .image-index {
+  width: 100%;
   position: relative;
-  width: 100%; /* for IE 6 */
-
-  h4 {
-     position: absolute;
-     top: 320px;
-     left: 0px;
-     width: 100%;
-     opacity: .8;
-  }
-
-  h4.matches {
-     display: none;
-     position: absolute;
-     top: 345px;
-     left: 0px;
-     width: 100%;
-     z-index:10000;
-     font-size: 1em;
-  }
 }
+.image-index {
+  padding-bottom: 2em;
+}
+.image-index img {
+  padding: 1em;
+}
+
+.image-index h4 {
+   position: absolute;
+   bottom: 80px;
+   left: 0px;
+   width: 100%;
+   opacity: .9;
+}
+
+.image-index h4.matches {
+   display: none;
+   position: absolute;
+   bottom: 50px;
+   left: 0px;
+   width: 100%;
+   z-index:10000;
+   font-size: 1em;
+}
+
 .image-index:hover {
   h4.matches {
       display: block;
-      opacity: .7;
+      opacity: .9;
       transition-delay:10s;
   }
 }
@@ -131,16 +121,6 @@ img.inline-image {
   text-align: center;
 }
 
-/*.image-index h4 {
-   visibility: hidden;
-   position: absolute;
-   top: 30px;
-   left: 50px;
-   width: 100%;
+.list-group .img-thumbnail {
+  margin: 0 auto;
 }
-.image-index h4:hover {
-  visibility: visible;
-  opacity: 1;
-  transition-delay:0s;
-}*/
-

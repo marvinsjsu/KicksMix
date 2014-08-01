@@ -4,17 +4,26 @@ KicksMix.Routers.Router = Backbone.Router.extend({
     "shoes/new" : "shoeNew",
     "shoes/:id" : "shoeShow",
     "shoes/:id/edit" : "shoeEdit",
-    //"users/:id" : "showUser"
+    "users/:id" : "showUser"
   },
   initialize: function() {
     //KicksMix.Collections.shoes = new KicksMix.Collections.Shoes();
   },
 
   showUser: function(id) {
-    var user = KicksMix.Collections.users.getOrFetch(id);
+
+    var user = new KicksMix.Models.User({ id: id });
+    user.fetch({
+      success: function(event, response, options) {
+
+      }
+    });
+
     var showUser = new KicksMix.Views.UserShow({
       model: user
     });
+
+    this._swapView(showUser);
   },
 
   shoesIndex: function() {

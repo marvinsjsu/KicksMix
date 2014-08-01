@@ -1,5 +1,8 @@
 <% if get_current_user %>
   <li>
-    <a id="AddShoe" href="#/shoes/new">Add a Shoe</a>
+    <%= link_to "my collection", user_url(get_current_user) %>
+  </li>
+  <li>
+    <a id="AddShoe" href="<%= root_url %>#/shoes/new">post a pair</a>
   </li>
 <% end %>
