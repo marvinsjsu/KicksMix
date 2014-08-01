@@ -1,5 +1,52 @@
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to user.username, user_url(user) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+
+            <% @users.each do |user| %>
+
+              <div class="col-xs-4">
+                <div class="panel panel-default col-xs-12">
+                  <div class="panel-heading centered"><h4><%= link_to user.username, user_url(user) %></h4></div>
+                    <div class="panel-body">
+                      <div class="list-group row">
+                        <div class="img-thumbnail">
+
+                          <% if user.photo_url %>
+                            <%= image_tag user.photo_url(:medium) %>
+                          <% else %>
+                            <%#= image_tag("missing.png")%>
+                            <img src="missing.png">
+                          <% end %>
+
+                        </div>
+                        <br/><br/>
+                        <h4></h4>
+
+
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <a href="mailto:<%= user.email %>"> <%= user.email %></a>
+                          </li>
+                          <li class="list-group-item">
+                            <p><%= user.description %></p>
+                          </li>
+                          <li class="list-group-item">
+                            <% if user.id == get_current_user.id %>
+                            <%= link_to "edit my profile", edit_user_url(user) %>
+                            <% end %>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
