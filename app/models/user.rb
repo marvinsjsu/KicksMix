@@ -26,11 +26,13 @@ class User < ActiveRecord::Base
     :small => "70x70#",
     :medium => "200x200"
   },
-  :bucket => 'kicksmixproduction',
+  :storage => :s3,
   :s3_credentials => {
-          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-      }
+    :bucket => ENV['AWS_BUCKET_PRODUCTION'], #these values safely stored in application.yml thanks to figaro!
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+    :s3_host_name => 's3-us-west-1.amazonaws.com'
+  }
 
   validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
