@@ -22,5 +22,9 @@ module KicksMix
 
     # config.assets.initialize_on_precompile = false
 
+    config.paperclip_defaults = {
+                :storage => :s3,
+                :s3_host_name => 's3-us-west-1.amazonaws.com'
+     }
   end
 end

@@ -26,7 +26,10 @@ class Shoe < ActiveRecord::Base
      :small => "70x70",
      :medium => "400x400"
   },
-  :bucket  => ENV['MY_BUCKET_NAME']
+  :storage => :s3,
+  :s3_host_name => 's3-us-west-1.amazonaws.com'
+  :bucket  => "kicksmixproduction",
+  :s3_credentials => S3_CREDENTIALS
 
   # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :shoe_photo, :content_type => /\Aimage\/.*\Z/
