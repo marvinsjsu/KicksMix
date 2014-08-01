@@ -26,7 +26,11 @@ class User < ActiveRecord::Base
     :small => "70x70#",
     :medium => "200x200"
   },
-  :bucket => 'kicksmixproduction'
+  :bucket => 'kicksmixproduction',
+  :s3_credentials => {
+          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      }
 
   validates_attachment :photo_url, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
